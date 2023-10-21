@@ -1,0 +1,11 @@
+mixin productCard()
+  .product-card
+    .container
+      +breadcrumbs(path, currentPage).breadcrumbs--product-card
+    +productBuy(productCard)
+    +tabInfo(productCard.tabInfo)
+    +productOffer(productCard.offers)
+    +productOffer(productCard.offersSpec, "special")
+    +productAdvantage(productCard.advantage.list)
+    +productSimilar(productCard.accompanying)
+    +productSimilar(productCard.similar)

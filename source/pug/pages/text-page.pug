@@ -1,0 +1,116 @@
+extends ../base/layout
+
+block variables
+  - const title = "Текстовая страница"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "text-page"
+
+block main
+  main
+    .inner-page
+      .container
+        +breadcrumbs(path, "text-page").inner-page__breadcrumbs
+        .inner-page__content.inner-page__content--text-page
+          .text-page
+            h1=textPage["name-page"]["title-h1"]
+            h2=textPage["name-page"]["title-h2"]
+            section
+              h3=textPage["name-page"].sections["text-and-link"].title
+              p !{textPage["name-page"].sections["text-and-link"].text1}
+              p !{textPage["name-page"].sections["text-and-link"].text2}
+            section
+              h3=textPage["name-page"].sections.quote.title
+              .block-quote
+                figure
+                  +icon("icon-quote", 30, 30).block-quote__icon
+                  blockquote
+                    p=textPage["name-page"].sections.quote.text
+                  figcaption
+                    span.block-quote__info.block-quote__info--author=textPage["name-page"].sections.quote.author
+                    span.block-quote__info.block-quote__info--post=textPage["name-page"].sections.quote.post
+            section
+              h3=textPage["name-page"].sections.picture.title
+              figure
+                +pictureMedia("content", textPage["name-page"].sections.picture.source, "jpg", 1065, 446, textPage["name-page"].sections.picture.alt, hasTablet, hasMobile)
+                figcaption=textPage["name-page"].sections.picture.caption
+            section
+              h3=textPage["name-page"].sections.ol.title
+              ol
+                each li in textPage["name-page"].sections.ol.list
+                  li
+                    p=li.text
+                    if(li.nested)
+                      ol
+                        each nestedLi in li.nested
+                          li
+                            p=nestedLi.text
+                            if(nestedLi.nested)
+                              ul
+                                each innerNestedLi in nestedLi.nested
+                                  li
+                                    p=innerNestedLi.text
+            section
+              h3=textPage["name-page"].sections.ul.title
+              ul
+                each li in textPage["name-page"].sections.ul.list
+                  li
+                    p=li.text
+            section.block-slider-with-text
+                h3=textPage["name-page"].sections["slider-with-text"].title
+                .slider-with-text.page-text-slider.swiper
+                  .slider-with-text__wrapper.swiper-wrapper
+                    each card in textPage["name-page"].sections["slider-with-text"].list
+                      .slider-with-text__card.swiper-slide
+                        .slider-with-text__card-container
+                          +pictureMedia("content", card.source, "jpg", 452, 263, card.alt, hasTablet, hasMobile)
+                          p=card.text
+                  .slider-with-text__pagination.page-text-slider__pagination
+                  .slider-with-text__button.slider-with-text__button--next.page-text-slider__button.page-text-slider__button--next
+                  .slider-with-text__button.slider-with-text__button--prev.page-text-slider__button.page-text-slider__button--prev
+            section
+                h3=textPage["name-page"].sections["text-with-streamlined-picture"].title
+                .streamlined-picture
+                  figure.float
+                    +pictureMedia("content", textPage["name-page"].sections["text-with-streamlined-picture"].source, "jpg", 452, 263, textPage["name-page"].sections.picture.alt, hasTablet, hasMobile)
+                    figcaption=textPage["name-page"].sections["text-with-streamlined-picture"].caption
+                  each item in textPage["name-page"].sections["text-with-streamlined-picture"].texts
+                    p=item.paragraf
+            section.block-slider.text-page__section
+              .text-page__section-wrapper
+                h3=textPage["name-page"].sections.slider.title
+                .text-page__slider.page-text-slider.swiper
+                  .text-page__wrapper.swiper-wrapper
+                    each card in textPage["name-page"].sections.slider.list
+                      .block-slider__slide.swiper-slide
+                        +pictureMedia("content", card.source, "jpg", 1067, 400, card.alt, hasTablet, hasMobile)
+                  .text-page__slider-pagination.page-text-slider__pagination
+                  .text-page__slider-button.text-page__slider-button--next.page-text-slider__button.page-text-slider__button--next
+                  .text-page__slider-button.text-page__slider-button--prev.page-text-slider__button.page-text-slider__button--prev
+            section
+              .scroll-x
+                h3=textPage["name-page"].sections.table.title
+                table
+                  thead
+                    tr
+                      each cell in textPage["name-page"].sections.table.head
+                        td=cell.text
+                  tr
+                    each cell in textPage["name-page"].sections.table.rows.row1
+                      td=cell.text
+                  tr
+                    each cell in textPage["name-page"].sections.table.rows.row2
+                      td=cell.text
+                  tr
+                    each cell in textPage["name-page"].sections.table.rows.row3
+                      td=cell.text
+                  tr
+                    each cell in textPage["name-page"].sections.table.rows.row4
+                      td=cell.text
+                  tr
+                    each cell in textPage["name-page"].sections.table.rows.row5
+                      td=cell.text
+    +feedback()

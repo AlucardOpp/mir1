@@ -1,0 +1,52 @@
+.burger {
+  display: none;
+
+  @include vp--1023 {
+    position: relative;
+    display: block;
+    width: 62px;
+    height: 60px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 23px;
+      left: 19px;
+      width: 22px;
+      height: 2px;
+      background-color: $color-black-russian;
+      content: "";
+    }
+
+    &::after {
+      top: 29px;
+      box-shadow: 0 6px 0 0 $color-black-russian;
+    }
+
+    &:hover::before,
+    &:hover::after,
+    &:focus::before,
+    &:focus::after {
+      background-color: $color-black-russian-4;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      box-shadow: 0 6px 0 0 $color-black-russian-4;
+    }
+
+    &:active::before,
+    &:active::after {
+      background-color: $color-black-russian-5;
+    }
+
+    &:active::after {
+      box-shadow: 0 6px 0 0 $color-black-russian-5;
+    }
+  }
+}

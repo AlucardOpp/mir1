@@ -1,0 +1,157 @@
+mixin footer(footerMods)
+  -
+    var footerNavLinks = [
+      {
+        href: "#",
+        text: "Сферы деятельности",
+        nestedLinks : [
+          {
+            href: "#",
+            text: "Цифровые двойники & HIL",
+          },
+          {
+            href: "#",
+            text: "Радиоизмерения",
+          },
+          {
+            href: "#",
+            text: "Испытательные стенды",
+          },
+          {
+            href: "#",
+            text: "Промышленный IoT и технологический мониторинг",
+          },
+          {
+            href: "#",
+            text: "Образование и наука",
+          },
+        ],
+      },
+      {
+        href: "#",
+        text: "Каталог",
+      },
+      {
+        href: "#",
+        text: "Отрасли",
+      },
+      {
+        href: "#",
+        text: "Конфигурации",
+      },
+      {
+        href: "#",
+        text: "Примеры решений",
+      },
+      {
+        href: "#",
+        text: "National Instruments",
+      },
+      {
+        href: "#",
+        text: "О компании",
+        nestedLinks : [
+          {
+            href: "#",
+            text: "О компании",
+          },
+          {
+            href: "#",
+            text: "Сотрудники",
+          },
+          {
+            href: "#",
+            text: "Контакты",
+          },
+        ],
+      },
+      {
+        href: "#",
+        text: "Новости",
+      },
+      {
+        href: "#",
+        text: "Сервис",
+      },
+    ];
+
+    var footerContactsList = {
+      main: {
+        title: "Контакты",
+        links: [
+          {
+            href: "tel:+78432900683",
+            text: "+7 (843) 290-06-83",
+          },
+          {
+            href: "mailto:info@izmeril.ru",
+            text: "info@izmeril.ru",
+          },
+        ],
+      },
+      support: {
+        title: "Техподдержка",
+        links: [
+          {
+            href: "mailto:support@izmeril.ru",
+            text: "support@izmeril.ru",
+          }
+        ],
+      },
+    }
+    var footerBottomLinks = [
+      {
+        href: "#",
+        text: "© ООО МИР, 2021",
+      },
+      {
+        href: "#",
+        text: "Политика конфиденциальности",
+      },
+      {
+        href: "#",
+        text: "Условия использования",
+      },
+      {
+        href: "#",
+        text: "Карта сайта",
+      },
+    ]
+
+  footer.footer(class=footerMods)
+    .footer-wrapper.container.container--footer.footer-grid
+      nav(aria-label="Дополнительная навигация").footer-nav
+        ul.footer-nav__list
+          each link in footerNavLinks
+            if(link.nestedLinks)
+              li.footer-nav__item
+                +link(link.href, link.text)
+                ul.footer-nav__nested-list
+                  each linkNested in link.nestedLinks
+                    li.footer-nav__nested-item
+                      +link(linkNested.href, linkNested.text)
+            else
+              li.footer-nav__item
+                +link(link.href, link.text).footer-nav__link
+      .footer-contacts
+        section.footer-contacts__section
+          h2.footer-contacts__title=footerContactsList.main.title
+          ul.footer-contacts__list
+            each item in footerContactsList.main.links
+              li.footer-contacts__item
+                +link(item.href, item.text)
+        section.footer-contacts__section
+          h2.footer-contacts__title=footerContactsList.support.title
+          ul.footer-contacts__list
+            each item in footerContactsList.support.links
+              li.footer-contacts__item
+                +link(item.href, item.text)
+      .footer-bottom
+        .footer-bottom__links
+          ul.footer-bottom__links-list
+            each link in footerBottomLinks
+              li.footer-bottom__links-item
+                +link(link.href, link.text).footer-bottom__links-link
+        a(href="#").footer-bottom__copyright-link
+          +icon("icon-form-copyright", 22, 28)
+          p.footer-bottom__copyright Дизайн-бюро «Форма»

@@ -1,0 +1,15 @@
+extends ../base/layout
+
+block variables
+  - const title = "Карточка товара"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "product-card"
+
+block main
+  main
+    +productCard()
+    +feedback()

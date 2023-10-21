@@ -1,0 +1,26 @@
+extends ../base/layout
+
+block variables
+  - const title = "О компании"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "about"
+
+block main
+  main
+    .about
+      +banner(700, "2","about").about__banner
+      .container
+        section.about__section.about__info
+          .about__info-title-block
+            h2.page-title.page-title--h2.about__info-title!= companyInfo.info.title
+          .about__text!= companyInfo.info.text
+          a.button.about__button(href="/staff.html") Ключевые сотрудники
+        +advantage.about__section
+        +partners.about__section
+        section.about__section
+          h2.page-title.page-title--h2.about__contacts-title= contacts.title
+          +contact-lists("contact-lists--about")

@@ -1,0 +1,8 @@
+mixin scopeList(data)
+  ol.scope-list
+          each item in data
+            li.scope-list__item
+              a(href="#").scope-list__link
+                span.scope-list__name!= item.title
+                .scope-list__img
+                  +picture("content", item.img, "jpg", item.width, item.height, `${item.title}`)

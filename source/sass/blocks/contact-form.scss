@@ -1,0 +1,212 @@
+.contact-form {
+  display: flex;
+  font-family: $font-family--tt-commons;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 944px;
+
+  @include vp--1023 {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 40px;
+
+    @include vp--1023 {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .contact-form__button {
+      font-family: inherit;
+      min-width: 220px;
+      min-height: 61px;
+      margin-left: 0;
+      margin-top: 28px;
+      letter-spacing: 0.02em;
+      color: $color-cobalt;
+
+
+      @include vp--1023 {
+        min-width: 170px;
+        min-height: 48px;
+        width: 170px;
+        height: 48px;
+        margin-top: 14px;
+        line-height: 100%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @include vp--767 {
+        min-width: 160px;
+        min-height: 42px;
+        width: 160px;
+        height: 42px;
+        line-height: 50%;
+        margin-top: 21px;
+      }
+    }
+
+    .contact-form__item {
+      min-width: 30%;
+      color: $color-default-white-3;
+      font-size: 20px;
+      flex-grow: 1;
+
+      @include vp--1023 {
+        width: 100%;
+        font-size: 17px;
+        line-height: 130%;
+        align-items: flex-start;
+        margin-bottom: 14px;
+      }
+
+      & input,
+      & textarea {
+        height: 50px;
+        color: $color-default-white;
+
+        @include vp--1023 {
+          height: 22px;
+          margin-bottom: 15px;
+        }
+      }
+
+      & textarea {
+        padding: 10px 5px;
+
+        @include vp--1023 {
+          height: 57px;
+        }
+      }
+
+      & input:focus,
+      & textarea:focus {
+        color: $color-default-white;
+      }
+
+      & input:not([type="checkbox"]):hover + label,
+      & textarea:hover + label {
+        color: $color-default-white-5;
+      }
+
+      & input[type="checkbox"] {
+        height: 0;
+      }
+
+      & input[type="checkbox"]:focus + label::before {
+        outline: 1px solid $color-default-white;
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      &--textarea {
+        width: 100%;
+        margin: 24px 0 5px;
+
+        @include vp--1023 {
+          margin: 0;
+        }
+      }
+    }
+
+    .contact-form__item--checkbox {
+      width: 100%;
+      justify-content: flex-end;
+
+      @include vp--1023 {
+        width: 75%;
+        margin-bottom: 0;
+      }
+
+      @include vp--1023 {
+        width: 100%;
+      }
+
+      label span a {
+        color: $color-default-white;
+        transition: color 0.2s ease-in-out;
+
+        &:hover,
+        &:active {
+          color: $color-default-white-3;
+        }
+
+        &:focus {
+          outline-color: $color-default-white;
+        }
+      }
+
+      label span {
+        @include vp--1023 {
+          padding-right: 100px;
+        }
+
+        @include vp--767 {
+          padding-right: 0;
+        }
+      }
+
+      & input[type="checkbox"] + label {
+        margin-top: 20px;
+        font-size: 17px;
+        line-height: 155%;
+        flex-shrink: 1;
+        flex-grow: 0;
+
+        @include vp--1023 {
+          line-height: 130%;
+          margin-top: 22px;
+        }
+
+        @include vp--767 {
+          line-height: 130%;
+          margin-top: 15px;
+        }
+
+        &::before {
+          margin-left: 2px;
+          margin-right: 15px;
+          margin-top: 3px;
+          width: 18px;
+          height: 18px;
+          border: 1px solid $color-default-white;
+          border-radius: 3px;
+
+          @include vp--1023 {
+            margin-top: -2px;
+            margin-right: 15px;
+          }
+
+          @include vp--767 {
+            margin-top: 1px;
+            margin-left: 1px;
+          }
+        }
+
+        @include vp--1023 {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .contact-form__item--checkbox input[type="checkbox"]:checked + label::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='18' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 .799805c-1.104569 0-2 .895435-2 1.999995v14c0 1.1046.89543 2 2 2h14c1.1046 0 2-.8954 2-2v-14c0-1.10456-.8954-1.999995-2-1.999995H2zM7.57143 13.7998L4 9.95365l1-1.07692L7.57143 11.646 13 5.7998l1 1.07693-6.42857 6.92307z' fill='%23fff'/%3E%3C/svg%3E");
+      border-radius: 3px;
+      background-position: center;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.logo {
+  display: inline-block;
+  margin: 30px 20px 20px 40px;
+
+  svg {
+    display: inline-block;
+    width: 360px;
+    height: 100px;
+
+    &:last-child {
+      display: none;
+    }
+
+    @include vp--1279 {
+      width: 300px;
+    }
+  }
+
+  @include vp--1439 {
+    margin-right: 8px;
+  }
+
+  @include vp--1279 {
+    margin-right: 2px;
+  }
+
+  @include vp--1023 {
+    margin: 10px 10px 10px 20px;
+
+    svg {
+      width: 143px;
+      height: 40px;
+
+      &:first-child {
+        display: none;
+      }
+
+      &:last-child {
+        display: block;
+      }
+    }
+  }
+
+  @include vp--767 {
+    margin: 14px 10px 10px 20px;
+
+    svg {
+      width: 108px;
+      height: 30px;
+    }
+  }
+}

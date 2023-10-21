@@ -1,0 +1,19 @@
+extends ../base/layout
+
+block variables
+  - const title = "Отдельная отрасль"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "field"
+
+block main
+  main
+    .field
+      +banner(700, "4", "field").field__section
+      +sectionPageBlock(configuration).field__section
+      +sectionPageBlock(solutionsGroup).field__section
+      +sectionPageBlock(components).field__section
+      +feedback().field__section

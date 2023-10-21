@@ -1,0 +1,148 @@
+.contact-lists {
+  @include vp--1023 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    column-gap: 20px;
+  }
+
+  @include vp--767 {
+    justify-content: space-between;
+    column-gap: 7px;
+    margin: 0 0 27px 0;
+  }
+}
+
+.contact-lists.contact-lists--about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, min-content);
+  justify-content: space-between;
+  column-gap: 40px;
+
+  @include vp--767 {
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+    align-items: start;
+    column-gap: 10px;
+  }
+}
+
+.contact-lists__address {
+  margin-bottom: 37px;
+  font-style: normal;
+
+  @include vp--1023 {
+    margin-bottom: 20px;
+    width: 60%;
+  }
+
+  @include vp--767 {
+    grid-column: 1 / 3;
+    margin-bottom: 28px;
+    width: 100%;
+  }
+}
+
+.contact-lists--about .contact-lists__address {
+  grid-column: 1 / 3;
+
+  @include vp--1023 {
+    grid-column: 1 / 2;
+  }
+
+  @include vp--767 {
+    grid-column: 1 / 3;
+  }
+}
+
+.contact-lists__phone-list,
+.contact-lists__mail-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-lists__phone-list {
+  display: grid;
+  row-gap: 30px;
+  margin: 0 0 60px 0;
+
+  @include vp--1023 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+    row-gap: 19px;
+    margin: 0;
+  }
+
+  @include vp--767 {
+    grid-row: 2 / 4;
+  }
+}
+
+.contact-lists--about .contact-lists__phone-list {
+  grid-template-columns: repeat(3, minmax(100px, 200px));
+  grid-auto-flow: row;
+  justify-content: space-between;
+  column-gap: 20px;
+
+  @include vp--1023 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+
+    grid-template-columns: 1fr;
+  }
+
+  @include vp--767 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+}
+
+.contact-lists__mail-list {
+  display: grid;
+  grid-template-columns: 190px 190px;
+  grid-template-rows: auto;
+  column-gap: 65px;
+  row-gap: 30px;
+
+  @include vp--1023 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 19px;
+  }
+}
+
+.contact-lists--about .contact-lists__mail-list {
+  grid-template-columns: repeat(2, minmax(100px, 190px));
+  justify-self: end;
+
+  @include vp--1023 {
+    justify-self: start;
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-lists__item-title {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  line-height: 155%;
+  color: $color-black-russian-2;
+
+  @include vp--1023 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    line-height: 130%;
+    font-weight: normal;
+  }
+}
+
+.contact-lists__item-link,
+.contact-lists__address {
+  font-size: 24px;
+  color: $color-black-russian;
+
+  @include vp--1023 {
+    font-size: 17px;
+    line-height: 130%;
+  }
+}

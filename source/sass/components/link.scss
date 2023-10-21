@@ -1,0 +1,21 @@
+.link {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: color $trans--300;
+  user-select: none;
+
+  &:hover {
+    color: $color-cobalt;
+  }
+
+  &:active {
+    color: $color-cobalt-3;
+  }
+
+  &--light {
+    &:hover {
+      color: $color-default-white-4;
+    }
+  }
+}

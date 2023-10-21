@@ -1,0 +1,30 @@
+figure.float {
+  float: right;
+  margin: 0 0 45px 40px;
+
+  @include vp--1023 {
+    width: calc(36% - 2px);
+    margin: 0 0 30px 40px;
+  }
+
+  @include vp--767 {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
+
+.float figcaption {
+  margin: 10px 0 0 0;
+
+  font-size: 17px;
+  color: $color-black-russian-2;
+
+  @include vp--1023 {
+    font-size: 14px;
+  }
+}
+
+.float img {
+  width: 100%;
+  height: auto;
+}

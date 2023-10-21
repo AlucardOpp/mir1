@@ -1,0 +1,17 @@
+.page-block {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.page-block__title {
+  margin-bottom: 59px;
+
+  @include vp--1023 {
+    text-align: center;
+    margin: 92px 0 37px;
+  }
+
+  @include vp--767 {
+    margin: 71px 0 30px;
+  }
+}

@@ -1,0 +1,11 @@
+mixin itemsList(data, page)
+  ul(class=`items-list items-list--${page}`)
+    each item in data
+      li.items-list__appliance
+        a(href="#" aria-label=`Перейти к ${item.title}`).items-list__link
+          .items-list__img
+            +picture("content", item.img, "jpg", "452", "339", `${item.title}`)
+          if (item.date)
+            time(datetime=item.date.datetime).items-list__date= item.date.text
+          h2.items-list__name!= item.title
+          p.items-list__text!= item.text

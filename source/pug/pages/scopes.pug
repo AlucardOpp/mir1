@@ -1,0 +1,20 @@
+extends ../base/layout
+
+block variables
+  - const title = "Сферы деятельности"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "scopes"
+
+block main
+  main
+    .inner-page.inner-page--scopes
+      section.scopes.page-scopes
+        .container
+          +breadcrumbs(path, "scopes").inner-page__breadcrumbs
+          .inner-page__content.inner-page__content--scopes
+            +page-title(title).page-scopes__title
+            +scopeList(mainScope)

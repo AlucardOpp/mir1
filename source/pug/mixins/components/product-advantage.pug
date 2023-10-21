@@ -1,0 +1,10 @@
+mixin productAdvantage(data)
+  section.advantage-product
+    .container
+      h2.title.title--h3 !{productCard.advantage.title}
+      ul.advantage-product__list
+        each item in data
+          li.advantage-product__item
+            h3.title.title--h4 !{item.title}
+            +icon(item.icon.name, item.icon.width, item.icon.height)
+            p !{item.desc}

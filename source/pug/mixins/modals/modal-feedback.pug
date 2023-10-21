@@ -1,0 +1,6 @@
+mixin modal-feedback()
+  .modal__header
+    a(href="main.html", aria-label="Переход на главную")
+      +icon("icon-logo-tablet", 108, 30)
+  p.modal__title.modal__title--feedback Оставьте свои контактные данные и&nbsp;мы свяжемся с&nbsp;вами в&nbsp;ближайшее время
+  +form("feedback-form", "button", "", "link--accent")

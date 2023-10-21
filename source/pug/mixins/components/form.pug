@@ -1,0 +1,54 @@
+mixin form(name, button, sectionClass, linkClass)
+  div(class=`${name} ${sectionClass}`)
+    form(
+      method='post'
+      action='#'
+      name=`${name}-feedback`
+      id=`${name}-feedback`
+    )
+      div.form-input(class=`${name}__item`)
+        input(
+          type='text'
+          name=`${name}-name`
+          id=`${name}-name`
+          autocomplete="on"
+          required
+        )
+        label(for=`${name}-name`) Ваше имя
+      div.form-input(class=`${name}__item`)
+        input(
+          type='email'
+          name=`${name}-email`
+          id=`${name}-email`
+          autocomplete="on"
+          required
+        )
+        label(for=`${name}-email`) Email
+      div.form-input(class=`${name}__item`)
+        input(
+          type='tel'
+          name=`${name}-phone`
+          id=`${name}-phone`
+          autocomplete="on"
+        )
+        label(for=`${name}-phone`) Телефон
+      div.form-input.form-input--textarea(class=`${name}__item ${name}__item--textarea`)
+        textarea.autoresize-textarea(
+          name=`${name}-message`
+          id=`${name}-message`
+          rows=1
+        )
+        label(for=`${name}-message`) Сообщение
+      div.form-checkbox(class=`${name}__item ${name}__item--checkbox`)
+        input.visually-hidden(
+          type='checkbox'
+          name=`${name}-agreement`
+          id=`${name}-agreement`
+          value='agreement'
+        )
+        label(for=`${name}-agreement`)
+          span Я согласен с условиями
+            +link("/"," Персональной обработки данных ")
+            | и
+            +link("/", " Политикой конфиденциальности ")
+      button(class=`${button} ${name}__button` type="submit") Отправить

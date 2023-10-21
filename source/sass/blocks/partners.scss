@@ -1,0 +1,88 @@
+.partners {
+  margin-top: 70px;
+
+  & ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto;
+    padding: 0;
+
+    @include vp--1023 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include vp--767 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.partners__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-default-white;
+  border: 1px solid $color-periwinkle;
+  height: 160px;
+  border-left: none;
+
+  &:nth-child(n+6) {
+    border-top: none;
+  }
+
+  &:nth-child(5n+1) {
+    border-left: 1px solid $color-periwinkle;
+
+    @include vp--1023 {
+      border-left: none;
+    }
+  }
+
+  @include vp--1023 {
+    height: 115px;
+    border: 1px solid $color-periwinkle;
+    border-left: none;
+    padding: 35px 47px;
+
+    &:nth-child(n+4) {
+      border-top: none;
+    }
+
+    &:nth-child(3n+1) {
+      border-left: 1px solid $color-periwinkle;
+
+      @include vp--767 {
+        border-left: none;
+      }
+    }
+  }
+
+  @include vp--767 {
+    height: 80px;
+    border: 1px solid $color-periwinkle;
+    border-left: none;
+    padding: 19px 23px;
+
+    &:nth-child(n+3) {
+      border-top: none;
+    }
+
+    &:nth-child(2n+1) {
+      border-left: 1px solid $color-periwinkle;
+    }
+  }
+}
+
+.partners__item img {
+  object-fit: contain;
+}
+
+.partners__title {
+  margin: 5px 0 50px;
+
+  @include vp--1023 {
+    text-align: center;
+    margin: 0 0 37px;
+  }
+}

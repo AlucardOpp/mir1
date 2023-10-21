@@ -1,0 +1,30 @@
+extends ../base/layout
+
+block variables
+  - const title = "Ключевые сотрудники"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "text-page"
+
+block main
+  main
+    .container
+      .staff
+        +breadcrumbs(path, "staff").staff__breadcrumbs
+        h1.title.title--h2.staff__title=staff.title
+        ul.staff__list
+          each item in staff.list
+            li.staff__item
+              .staff-card
+                .staff-card__image-wrapper
+                  +picture("content", item.photo, "jpg", 129, 129, "Фото сотрудника")
+                .staff-card__container
+                  p.staff-card__position
+                    span.visually-hidden Должность:
+                    =item.position
+                  h2.staff-card__title=item.name
+                p.staff-card__about-text=item.about
+    +feedback()

@@ -1,0 +1,139 @@
+.scopes {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 111px 0 110px 0;
+
+  @include vp--1023 {
+    padding: 90px 0;
+  }
+
+  @include vp--767 {
+    padding: 70px 0 76px 0;
+    background-image: none;
+  }
+}
+
+.scopes__title {
+  margin: 0 auto 60px auto;
+  max-width: 472px;
+  text-align: center;
+  overflow-wrap: break-word;
+  color: $color-default-white;
+
+  @include vp--1023 {
+    max-width: 351px;
+  }
+
+  @include vp--767 {
+    max-width: none;
+  }
+}
+
+.scopes ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  counter-reset: myCounter;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include vp--1023 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @include vp--767 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    row-gap: 20px;
+  }
+}
+
+.scopes__item {
+  border-radius: 60px 0;
+  background-color: $color-default-white;
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include vp--1023 {
+    min-height: 220px;
+    border-radius: 40px 0;
+  }
+}
+
+.scopes__link {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  padding: 39px 80px 26px;
+  border-radius: inherit;
+
+  @media (max-width: 1349px) {
+    padding: 39px 40px 26px;
+  }
+
+  @include vp--1023 {
+    padding: 30px 0 20px;
+  }
+
+  &:hover .scopes__name {
+    color: $color-cobalt;
+  }
+}
+
+.scopes__img {
+  align-self: center;
+  margin-top: auto;
+
+  @media (max-width: 1349px) {
+    align-self: flex-start;
+  }
+
+  @include vp--1023 {
+    align-self: center;
+    padding: 0 52px;
+  }
+}
+
+.scopes__name {
+  position: relative;
+  margin: 0;
+  color: $color-default-black;
+  font-size: 20px;
+  line-height: 130%;
+  transition: color $trans--300;
+
+  &::before {
+    position: absolute;
+    counter-increment: myCounter;
+    content: "0"counter(myCounter);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 110%;
+    letter-spacing: 0.02em;
+    opacity: 0.7;
+    color: $color-cobalt;
+    left: -39px;
+    top: 4px;
+  }
+
+  @media (max-width: 1349px) {
+    &::before {
+      left: -29px;
+    }
+  }
+
+  @include vp--1023 {
+    font-size: 18px;
+    padding: 0 24px 0 48px;
+
+    &::before {
+      top: 3px;
+      left: 21px;
+    }
+  }
+}

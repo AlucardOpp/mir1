@@ -1,0 +1,161 @@
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  row-gap: 61px;
+  color: $color-default-black;
+
+  &--news {
+    row-gap: 57px;
+
+    & .items-list__text,
+    & .items-list__date {
+      display: block;
+    }
+
+    & .items-list__link {
+      font-size: 28px;
+      line-height: 130%;
+    }
+
+    & .items-list__name {
+      & br {
+        display: inline;
+      }
+    }
+  }
+
+  @include vp--1023 {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 41px;
+
+    &--news {
+      & .items-list__link {
+        font-size: 20px;
+        line-height: 130%;
+      }
+
+      & .items-list__name {
+        & br {
+          display: inline;
+        }
+      }
+    }
+
+    &--catalog {
+      & .items-list__appliance {
+        &:not(:nth-child(-n+10)) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include vp--767 {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 31px;
+    margin-bottom: 28px;
+
+    &--news {
+      & .items-list__link {
+        font-size: 18px;
+        line-height: 110%;
+      }
+    }
+  }
+}
+
+.items-list__img {
+  margin-bottom: 30px;
+
+  & img {
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid $color-periwinkle-2;
+  }
+
+  @include vp--1023 {
+    margin-bottom: 18px;
+  }
+
+  @include vp--767 {
+    margin-bottom: 7px;
+
+    & img {
+      width: 100%;
+    }
+  }
+}
+
+.items-list__name {
+  margin: 0;
+  max-width: 446px;
+  font-weight: 600;
+  color: inherit;
+  transition: color $trans--300;
+  font-size: 24px;
+  line-height: 140%;
+  user-select: none;
+
+  @include vp--1023 {
+    font-size: 20px;
+    line-height: 130%;
+
+    & br {
+      display: inline;
+    }
+  }
+
+  @include vp--767 {
+    font-size: 18px;
+    line-height: 110%;
+  }
+
+  & br {
+    vertical-align: middle;
+    display: none;
+  }
+}
+
+.items-list__date {
+  color: $color-black-russian-2;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 110%;
+  margin: 0 0 19px 0;
+  display: none;
+
+  @include vp--1023 {
+    font-size: 14px;
+    line-height: 130%;
+    margin-bottom: 10px;
+  }
+
+  @include vp--767 {
+    margin-bottom: 6px;
+  }
+}
+
+.items-list__text {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 155%;
+  color: $color-black-russian;
+  margin: 21px 0 0 0;
+  display: none;
+
+  @include vp--1023 {
+    font-size: 17px;
+    line-height: 130%;
+    margin: 6px 0 0;
+  }
+}
+
+.items-list__link:hover {
+  color: $color-cobalt;
+}

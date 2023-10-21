@@ -1,0 +1,41 @@
+extends ../base/layout
+
+block variables
+  - const title = "Новость"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = "footer--border-top"
+  - const currentPage = "one-news"
+
+block main
+  main
+    .one-news-page
+      .container
+        .inner-page
+          +breadcrumbs(path, "one-news")
+          section.one-news-page__intro
+            h1.title.title--h2=oneNews.title
+            +pictureMedia("content", oneNews.imgUrl, "jpg", 1436, 600, "Иллюстрация к статье", hasTablet, hasMobile)
+          .inner-page__content.inner-page__content--text-page
+            section.one-news-page__one-news
+              h2.title.title--h3=oneNews.news.title
+              each item in oneNews.news.articles
+                article
+                  h3=item.title
+                  p=item.text
+                  if item.imgUrl
+                    figure
+                      +pictureMedia("content", item.imgUrl, "jpg", 1065, 446, "Иллюстрация", hasTablet, hasMobile)
+                      figcaption=item.imgCaption
+              time=oneNews.news.date
+            section.one-news-page__also-see.also-see
+              h2.title.title--h3=oneNews.also.title
+              ul.also-see__list
+                each item in oneNews.also.list
+                  li.also-see__item
+                    .also-see__picture-wrapper
+                      +picture("content", item.imgUrl, "jpg", 140, 140, "Иллюстрация к статье")
+                    h3.also-see__item-title=item.title
+                    p.also-see__item-text=item.text

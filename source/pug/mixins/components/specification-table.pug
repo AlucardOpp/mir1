@@ -1,0 +1,8 @@
+mixin specification-table(data)
+  table.specification-table
+    caption !{data.title}
+    tbody
+      each item in data.items
+        tr
+          td !{item.key}
+          td !{item.value}

@@ -1,0 +1,128 @@
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 80px min-content;
+  width: 100%;
+  min-height: 700px;
+  position: relative;
+  background-color: $color-black-russian;
+
+  @include vp--1023 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 400px 40px min-content 90px;
+    min-height: 750px;
+  }
+
+  @include vp--767 {
+    grid-template-rows: 300px 20px min-content 67px;
+    min-height: 722px;
+  }
+}
+
+.banner__wrapper {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  display: flex;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include vp--1023 {
+    grid-column: 1;
+    grid-row: 3/4;
+  }
+}
+
+.banner__info-block {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include vp--1023 {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+.banner__title {
+  color: $color-default-white;
+  margin: 20px 0 33px;
+
+  @include vp--1023 {
+    margin: 15px 0 10px;
+  }
+
+  @include vp--767 {
+    margin: 0;
+  }
+}
+
+.banner__text {
+  font-size: 20px;
+  line-height: 155%;
+  color: $color-default-white;
+  margin: 0;
+  width: 90%;
+  min-height: 295px;
+
+  & p {
+    margin: 0;
+  }
+
+  @include vp--1023 {
+    font-size: 17px;
+    line-height: 130%;
+    min-height: unset;
+    width: 100%;
+  }
+
+  @include vp--767 {
+    font-size: 17px;
+    min-height: unset;
+  }
+}
+
+.banner__img-block {
+  grid-column: 2;
+  grid-row: 1/-1;
+  border-radius: 0 0 0 500px;
+  background-color: $color-transparent;
+  height: 700px;
+  overflow: hidden;
+  object-fit: scale-down;
+  width: 100%;
+
+  & img {
+    border-radius: 0 0 0 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include vp--1023 {
+      width: 100%;
+      height: auto;
+    }
+
+    @include vp--767 {
+      width: 100%;
+    }
+  }
+
+  @include vp--1023 {
+    grid-column: 1;
+    grid-row: 1/2;
+    height: 400px;
+  }
+
+  @include vp--767 {
+    height: 300px;
+  }
+}
+
+.banner__breadcrumbs {
+  color: $color-default-white-3;
+
+  a:hover {
+    color: $color-default-white-4;
+  }
+}

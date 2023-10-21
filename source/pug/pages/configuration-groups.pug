@@ -1,0 +1,17 @@
+extends ../base/layout
+
+block variables
+  - const title = "Группы конфигураций"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "configuration-groups"
+
+block main
+  main
+    .configuration-groups
+      +banner(700, "5", "configuration-groups").configuration-groups__section
+      +sectionPageBlock(configurationGroups).configuration-groups__section
+      +feedback().configuration-groups__section

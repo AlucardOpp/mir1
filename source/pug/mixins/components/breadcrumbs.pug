@@ -1,0 +1,7 @@
+mixin breadcrumbs(path, page)
+  .breadcrumbs(class!=attributes.class)
+    ul.breadcrumbs__list
+      each item in path[page]
+        li.breadcrumbs__item
+          +link(item.link, item.name)
+        li.breadcrumbs__item /

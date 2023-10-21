@@ -1,0 +1,23 @@
+extends ../base/layout
+
+block variables
+  - const title = "Контакты"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "contacts"
+
+block main
+  main
+    .contacts
+      .container.contacts__container
+        .contacts__grid
+          .contacts__inner-container
+            +breadcrumbs(path, "contacts").contacts__breadcrumbs
+            h1.title.title--h2.contacts__title=contacts.title
+            +contact-lists()
+          .contacts__map
+            +picture("content", "contacts-map", "jpg", 960, 763, "Карта")
+    +feedback()

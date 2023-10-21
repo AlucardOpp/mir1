@@ -1,0 +1,44 @@
+extends ../base/layout
+
+block variables
+  - const title = "Поиск по сайту"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "search-page"
+
+block main
+  main
+    .inner-page
+      .container
+        section.search-page
+          +breadcrumbs(path, "search").inner-page__breadcrumbs
+          +page-title(title).search-page__title
+          .inner-page__content.inner-page__content--search-page
+            .search-form
+              form
+                label(for="search-page" aria-label="Поиск по сайту")
+                  +icon("icon-search", "25", "25")
+                input(
+                  type="search"
+                  name="search-page"
+                  id="search-page"
+                  placeholder="Радио"
+                  minlength=5
+                )
+                button.button(type="submit") Поиск
+            p.search-page__results-count Найдено результатов: 76
+            ul.search-page__results-list
+              each item in searchResult
+                li.search-page__result-item.search-result
+                  p.search-result__chapter
+                    span.visually-hidden Раздел:
+                    = item.chapter
+                  h2.search-result__title= item.title
+                  p.search-result__text= item.text
+                    span ...
+                    +link(item.link, " Читать далее").link--accent.search-result__link
+            +link("", "Загрузить еще").search-page__link
+            +pagination(35, 2)

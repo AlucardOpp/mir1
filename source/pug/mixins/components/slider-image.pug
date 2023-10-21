@@ -1,0 +1,9 @@
+mixin sliderImage(data)
+  .slider-image
+    .slider-image__wrapper
+      each image in data
+        .slider-image__slide
+          +pictureMedia(image.path, image.name, image.format, image.width, image.height, image.altText, hasTablet, hasMobile)
+    .slider-image__pagination
+    .slider-image__btn.slider-image__btn--next
+    .slider-image__btn.slider-image__btn--prev

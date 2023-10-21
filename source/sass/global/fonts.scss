@@ -1,0 +1,26 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "TT Commons";
+  font-display: swap;
+  src: url("../fonts/ttcommons-regular.woff2") format("woff2"),
+    url("../fonts/ttcommons-regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "TT Commons";
+  font-display: swap;
+  src: url("../fonts/ttcommons-medium.woff2") format("woff2"),
+    url("../fonts/ttcommons-medium.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  font-family: "TT Commons";
+  font-display: swap;
+  src: url("../fonts/ttcommons-demibold.woff2") format("woff2"),
+    url("../fonts/ttcommons-demibold.woff") format("woff");
+}

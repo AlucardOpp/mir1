@@ -1,0 +1,10 @@
+mixin advantage()
+  section.advantage(class!=attributes.class)
+    h2.page-title.page-title--h2.advantage__title!= advantage.title
+    ul
+      each item in advantage.items
+        li.advantage__item
+          .advantage__title-wrapper
+            +icon(item.svg, item.width, item.height).advantage__svg
+            h3.advantage__item-title!= item.title
+          p.advantage__text!= item.text

@@ -1,0 +1,16 @@
+mixin pictureMedia(path, image, format, width, height, altText, hasTablet, hasMobile)
+  - hasTablet = typeof hasTablet === "undefined" ? true : hasTablet
+  - hasMobile = typeof hasMobile === "undefined" ? true : hasMobile
+
+  picture(class!=attributes.class)
+    if(hasMobile)
+      source(media='(max-width: 767px)', type='image/webp', srcset="img/" + path + "/" + image + "-mobile" + ".webp" + ", " + "img/" + path + "/" + image + "-mobile" + "@2x.webp" + " 2x")
+    if(hasTablet)
+      source(media='(max-width: 1023px)', type='image/webp', srcset="img/" + path + "/" + image + "-tablet" + ".webp" + ", " + "img/" + path + "/" + image + "-tablet" + "@2x.webp" + " 2x")
+    source(type='image/webp', srcset="img/" + path + "/" + image + ".webp" + ", " + "img/" + path + "/" + image + "@2x.webp" + " 2x")
+
+    if(hasMobile)
+      source(media='(max-width: 767px)', srcset="img/" + path + "/" + image + "-mobile" + "." + format + ", " + "img/" + path + "/" + image + "-mobile" + "@2x." + format + " 2x")
+    if(hasTablet)
+      source(media='(max-width: 1023px)', srcset="img/" + path + "/" + image + "-tablet" + "." + format + ", " + "img/" + path + "/" + image + "-tablet" + "@2x." + format + " 2x")
+    img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText, data-open-modal="zoom")

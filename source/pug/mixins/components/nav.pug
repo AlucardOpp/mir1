@@ -1,0 +1,14 @@
+mixin nav(menu)
+  nav(aria-label="Основная навигация").nav
+    ul.nav__list
+      each item in menu
+        if(item.links)
+          li.nav__item
+            button(class="nav__name-links link", type="button")!= item.name
+            ul.nav__links
+              each link in item.links
+                li
+                  +link(link.href, link.text).nav__link.link
+        else
+          li.nav__item
+            +link(item.href, item.text).nav__link.link

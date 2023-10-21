@@ -1,0 +1,125 @@
+.feedback-form {
+  display: flex;
+  font-family: $font-family--tt-commons;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  @include vp--1023 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.feedback-form__item {
+  width: 100%;
+  color: $color-black-russian-2;
+  font-size: 17px;
+
+  & input,
+  & textarea {
+    height: 62px;
+
+    @include vp--1023 {
+      height: 51px;
+    }
+  }
+
+  & textarea {
+    padding: 13px 5px;
+
+    @include vp--1023 {
+      height: 71px;
+    }
+  }
+
+  & input:focus,
+  & textarea:focus {
+    color: $color-default-black;
+  }
+
+  & input[type="checkbox"] {
+    height: 0;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.feedback-form__input-label {
+  flex-basis: 30%;
+
+  &--textarea {
+    @include vp--1023 {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.feedback-form__button {
+  min-width: 220px;
+  min-height: 61px;
+  margin-top: 20px;
+
+  @include vp--1023 {
+    min-width: 170px;
+    min-height: 53px;
+    margin-top: 30px;
+    line-height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include vp--767 {
+    min-width: 160px;
+    min-height: 42px;
+    line-height: 50%;
+  }
+}
+
+.feedback-form__item--checkbox label {
+  margin-top: 20px;
+
+  @include vp--1023 {
+    line-height: 130%;
+    margin-top: 22px;
+  }
+
+  @include vp--767 {
+    line-height: 130%;
+    margin-top: 15px;
+  }
+
+  &::before {
+    margin-left: 2px;
+    margin-right: 15px;
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $color-cobalt;
+    border-radius: 3px;
+
+    @include vp--1023 {
+      margin-top: -1px;
+      margin-right: 10px;
+    }
+
+    @include vp--767 {
+      margin-top: 1px;
+      margin-left: 4px;
+      margin-right: 15px;
+    }
+  }
+
+  @include vp--1023 {
+    font-size: 14px;
+  }
+}
+
+input[type="checkbox"]:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 0C0.895431 0 0 0.89543 0 2V16C0 17.1046 0.89543 18 2 18H16C17.1046 18 18 17.1046 18 16V2C18 0.895431 17.1046 0 16 0H2ZM7.57143 13L4 9.15385L5 8.07692L7.57143 10.8462L13 5L14 6.07692L7.57143 13Z' fill='%230046C8'/%3E%3C/svg%3E ");
+  border-radius: 3px;
+  background-position: center;
+}

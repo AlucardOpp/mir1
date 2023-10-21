@@ -1,0 +1,33 @@
+mixin header(headerMods, currentPage)
+  header.header.header--nojs(class=headerMods)
+    .header__top
+      if(currentPage === "main")
+        a.logo
+          +icon("icon-logo-desc", "360", "100")
+          +icon("icon-logo-tablet", "143", "40")
+      else
+        a.logo(href="main.html", aria-label="Переход на главную")
+          +icon("icon-logo-desc", "360", "100")
+          +icon("icon-logo-tablet", "143", "40")
+      button(class="header__feedback-btn", type="button", aria-label="Свяжитесь с нами", data-open-modal="feedback") Свяжитесь с нами
+      button.burger.btn-reset(type="button")
+    +nav(headerNav)
+    ul.header__contacts
+      each contact in headerContacts
+        if(contact.link)
+          li(class=`header__contact header__contact--${contact.mod}`)
+            a(class=`header__contact-link header__contact-link--${contact.mod} link`, href=contact.link.href)!= contact.link.text
+        else
+          li(class=`header__contact header__contact--${contact.mod}`)
+            if(contact.mod === "feedback")
+              button(class=`header__contact-button header__contact-button--${contact.mod}`, type="button", aria-label="Свяжитесь с нами", data-open-modal="feedback")!= contact.btn
+            else if(contact.mod === "search")
+              button(class=`header__contact-button header__contact-button--${contact.mod} link`, type="button", aria-label="Поиск")!= contact.btn
+                +icon("icon-search", "17", "17")
+    .header__search
+      .container
+        form(action=action, method=method)
+          label(for="search-field")
+            +icon("icon-search", "24", "24")
+          input(type="text", name="search", id="search-field", placeholder="Поиск", required)
+          button.header__search-submit.button(type="submit") Поиск

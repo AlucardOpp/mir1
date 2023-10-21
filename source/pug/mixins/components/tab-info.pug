@@ -1,0 +1,36 @@
+mixin tabInfo(data)
+  .tab-info
+    .tab-info__controls
+      ul.tab-info__controls-list
+        each control, i in data.controls
+          if(i === 1)
+            li.tab-info__controls-item
+              button(class="tab-info__control active", type="button") #{control}
+          else
+            li.tab-info__controls-item
+              button(class="tab-info__control", type="button") #{control}
+    .tab-info__contents
+      .tab-info__contents-wrapper.swiper-wrapper
+        each content, i in data.contents
+          if(i === 1)
+            section(class=`tab-info__content${content.mod ? `${` tab-info__content--`}${content.mod}`: ``} active`).swiper-slide
+              .container
+                h3.visually-hidden #{content.title}
+                if(content.mod === "specifications")
+                  .specifications
+                    .specifications__list
+                      each table in content.tables
+                        +specification-table(table)
+                else
+                  h4.title.title--h4 #{content.title}
+
+          else
+            section(class=`tab-info__content${content.mod ? `${` tab-info__content--`}${content.mod}`: ``}`).swiper-slide
+              .container
+                h3.visually-hidden #{content.title}
+                if(content.mod === "specifications")
+                  .specifications
+                    each table in content.tables
+                      +specification-table(table)
+                else
+                  h4.title.title--h4 #{content.title}

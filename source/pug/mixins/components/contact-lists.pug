@@ -1,0 +1,15 @@
+mixin contact-lists(modifier)
+  .contact-lists(class=`${modifier}`)
+    address.contact-lists__address
+      span.visually-hidden Адрес:
+      =contacts.address
+    ul.contact-lists__phone-list
+      each item in contacts.phone
+        li.contact-lists__phone-item
+          h2.contact-lists__item-title=item.title
+          +link(`tel:${item.href}`, item.text).contact-lists__item-link
+    ul.contact-lists__mail-list
+      each item in contacts.email
+        li.contact-lists__mail-item
+          h2.contact-lists__item-title=item.title
+          +link(`tel:${item.href}`, item.text).contact-lists__item-link

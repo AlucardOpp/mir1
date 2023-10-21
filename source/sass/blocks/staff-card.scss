@@ -1,0 +1,92 @@
+.staff-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(50px, 129px) 1fr;
+  column-gap: 10px;
+
+  height: 100%;
+
+  padding: 40px 35px 38px 40px;
+
+  border-radius: 100px 0;
+  background-color: $color-default-white;
+  border: 1px solid $color-periwinkle;
+
+  @include vp--1023 {
+    grid-template-columns: minmax(50px, 75px) 1fr;
+    padding: 30px 33px 30px 30px;
+    border-radius: 60px 0;
+  }
+
+  @include vp--767 {
+    grid-template-columns: minmax(50px, 65px) 1fr;
+    column-gap: 20px;
+    border-radius: 40px 0;
+  }
+}
+
+.staff-card__container {
+  max-width: 70%;
+
+  @include vp--1023 {
+    max-width: 90%;
+  }
+}
+
+.staff-card__position {
+  font-size: 17px;
+  color: $color-black-russian-2;
+  margin: 0;
+
+  @include vp--1279 {
+    font-size: 14px;
+  }
+
+  @include vp--1023 {
+    font-size: 14px;
+  }
+}
+
+.staff-card__title {
+  font-size: 24px;
+  line-height: 130%;
+  margin: 10px 0 40px 0;
+
+  @include vp--1279 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+  }
+}
+
+.staff-card__about-text {
+  grid-column: 1 / 3;
+  width: 100%;
+  margin: 0;
+  font-size: 17px;
+  color: $color-black-russian;
+
+  @include vp--1279 {
+    font-size: 17px;
+  }
+
+  @include vp--767 {
+    font-size: 14px;
+  }
+}
+
+.staff-card img {
+  width: 129px;
+  height: auto;
+  object-fit: cover;
+  outline: 5px solid $color-cobalt;
+  outline-offset: -5px;
+  border-radius: 50%;
+
+  @include vp--1023 {
+    width: 75px;
+  }
+
+  @include vp--767 {
+    width: 65px;
+  }
+}

@@ -1,0 +1,69 @@
+mixin pagination(totalPage, activePage)
+  ul.pagination
+    if (activePage !== 1)
+      li.pagination__page.pagination__page--prev(id="prev")
+        +link(activePage - 1, "Назад")
+
+    if (activePage <= 4)
+      - let i = 1
+      while (i <= 4)
+        - let p = i++
+        if (p === activePage)
+          li.pagination__page.pagination__page--active= p
+        else
+          if (p === 4)
+            li.pagination__page.pagination__page--not-in-mobile
+              +link(p, p)
+          else
+            li.pagination__page
+              +link(p, p)
+      li.pagination__page ...
+      - let y = totalPage - 3
+      while (y <= totalPage)
+        - let p = y++
+        if (p <= totalPage - 2)
+          li.pagination__page.pagination__page--not-in-mobile
+            +link(p, p)
+        else
+          li.pagination__page
+            +link(p, p)
+
+    if (activePage > 4 && activePage < totalPage - 3)
+      li.pagination__page
+        +link(1, 1)
+      li.pagination__page ...
+      - let i = activePage - 2
+      while (i <= activePage + 2)
+        - let p = i++
+        if (p === activePage - 2 || p === activePage + 2)
+          li.pagination__page.pagination__page--not-in-mobile
+            +link(p, p)
+        else
+          if (p === activePage)
+            li.pagination__page.pagination__page--active= p
+          else
+            li.pagination__page
+              +link(p, p)
+      li.pagination__page ...
+      li.pagination__page
+        +link(totalPage, totalPage)
+
+    if (activePage > totalPage - 3)
+      - let i = 1
+      while (i <= 4)
+        - let p = i++
+        li.pagination__page
+          +link(p, p)
+      li.pagination__page ...
+      - let y = totalPage - 3
+      while (y <= totalPage)
+        - let p = y++
+        if (p === activePage)
+          li.pagination__page.pagination__page--active= p
+        else
+          li.pagination__page
+            +link(p, p)
+
+    if (activePage !== totalPage)
+      li.pagination__page.pagination__page--next(id="next")
+        +link(activePage + 1, "Вперед")

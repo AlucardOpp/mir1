@@ -1,0 +1,38 @@
+.catalog__list {
+  margin-bottom: 62px;
+
+  @include vp--1023 {
+    margin-bottom: 64px;
+  }
+
+  @include vp--767 {
+    margin-bottom: 32px;
+  }
+}
+
+.catalog .pagination {
+  justify-content: center;
+}
+
+.catalog__more {
+  display: none;
+
+  @include vp--767 {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color $trans--300;
+    color: $color-cobalt;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+
+    &:hover {
+      color: $color-default-black;
+    }
+  }
+}

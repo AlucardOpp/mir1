@@ -1,0 +1,9 @@
+.scroll-x {
+  position: relative;
+  width: calc(100% + 38px);
+  overflow-x: scroll;
+
+  @include vp--374 {
+    width: calc(100% + 14px);
+  }
+}

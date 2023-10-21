@@ -1,0 +1,20 @@
+extends ../base/layout
+
+block variables
+  - const title = "Сфера применения"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "scope"
+
+block main
+  main
+    .page-scope
+      +banner(700, "1", "scope").page-scope__section
+      +solutions(scopeSolutions).page-scope__section
+      +sectionPageBlock(configuration).product.page-scope__section
+      +sectionPageBlock(solutionsGroup).product.page-scope__section
+      +sectionPageBlock(components).product.page-scope__section
+      +feedback()

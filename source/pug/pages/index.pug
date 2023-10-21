@@ -1,0 +1,121 @@
+extends ../base/layout
+
+block variables
+  - var title = "Список страниц"
+
+block main
+  style.
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    a {
+      color: rgb(10, 10, 175);
+    }
+
+    li {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 7px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      ol {
+        padding-left: 20px;
+      }
+
+      ol li {
+        margin-bottom: 15px;
+      }
+    }
+
+  -
+    var pages = [
+      {
+        name: "UI-kit — ui-kit.html",
+        src: "ui-kit.html"
+      },
+      {
+        name: "Главная — main.html",
+        src: "main.html"
+      },
+      {
+        name: "Текстовая страница — text-page.html",
+        src: "text-page.html"
+      },
+      {
+        name: "Новости — news.html",
+        src: "news.html"
+      },
+      {
+        name: "Поиск по сайту — search-page.html",
+        src: "search-page.html"
+      },
+      {
+        name: "Сферы применения — scopes.html",
+        src: "scopes.html"
+      },
+      {
+        name: "Сфера применения — scope.html",
+        src: "scope.html"
+      },
+      {
+        name: "Каталог — catalog.html",
+        src: "catalog.html"
+      },
+      {
+        name: "Контакты — contacts.html",
+        src: "contacts.html",
+      },
+      {
+        name: "Ключевые сотрудники — staff.html",
+        src: "staff.html",
+      },
+      {
+        name: "Отдельная отрасль — field.html",
+        src: "field.html",
+      },
+      {
+        name: "Группы конфигураций — configuration-groups.html",
+        src: "configuration-groups.html",
+      },
+      {
+        name: "Карточка товара — product-card.html",
+        src: "product-card.html"
+      },
+      {
+        name: "О компании — about.html",
+        src: "about.html"
+      },
+      {
+        name: "Новость — one-news.html",
+        src: "one-news.html"
+      },
+    ]
+
+  main.container.main-index
+    +icon("icon-logo-desc", 359, 100)
+    h1 Список страниц
+    ol
+      each page in pages
+        li
+          a(href= page.src)= page.name

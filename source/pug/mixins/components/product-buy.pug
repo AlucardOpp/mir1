@@ -1,0 +1,12 @@
+mixin productBuy(data)
+  section.product-buy
+    .container
+      h1.title.title--h2 !{data.title}
+      .product-buy__wrapper
+        .product-buy__col
+          +sliderImage(data.images)
+        .product-buy__col
+          .product-buy__description
+            p !{data.description}
+          .product-buy__link
+            a(class="button", href=data.link.href, data-open-modal="feedback") !{data.link.text}

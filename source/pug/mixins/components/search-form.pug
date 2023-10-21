@@ -1,0 +1,13 @@
+mixin search-form()
+  .search-form
+    form
+      label(for="search-page" aria-label="Поиск по сайту")
+        +icon("icon-search", "25", "25")
+      input(
+        type="search"
+        name="search-page"
+        id="search-page"
+        placeholder="Радио"
+        minlength=5
+      )
+      button.button(type="submit") Поиск

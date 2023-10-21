@@ -1,0 +1,7 @@
+mixin feedback()
+  section.feedback-section
+      .container.feedback-section__wrapper
+        .feedback-section__title-block
+          h2.title.title--h2.feedback-section__title Свяжитесь с&nbsp;нами
+          p.feedback-section__description Нужна помощь или хотите задать вопрос? Напишите нам или оставьте свой номер телефона и мы вам перезвоним.
+        +form("contact-form","button button--light","feedback-section__form", "link--light")

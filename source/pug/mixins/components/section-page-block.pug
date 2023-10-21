@@ -1,0 +1,7 @@
+mixin sectionPageBlock(data)
+  section.page-block(class!=attributes.class)
+    .container
+      h2.page-title.page-title--h2.page-block__title!= data.title
+      .product
+        +productsBlock(data.items)
+    +showMoreLink(data.link)

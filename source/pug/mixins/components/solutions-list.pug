@@ -1,0 +1,7 @@
+mixin solutionsList(data)
+  ul.solutions-list
+    each item in data
+      li.solutions-list__item
+        a(href="#" class=`solutions-list__link solutions-list__link--${item.modifier}`)
+          +icon(item.svg, item.width, item.height)
+          span.solutions-list__name!= item.title

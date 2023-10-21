@@ -1,0 +1,10 @@
+mixin banner(height, id, page)
+  .banner(class!=attributes.class)
+    .container.banner__wrapper
+      .banner__info-block
+        +breadcrumbs(path, page).banner__breadcrumbs
+        h1.page-title.banner__title!= banner[id].title
+        .banner__text
+          p!= banner[id].text
+    .banner__img-block
+      +picture("content", banner[id].img, "jpg", "960", "700", banner[id].title)

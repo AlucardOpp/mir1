@@ -1,0 +1,14 @@
+.main-background {
+  background-image: url("../img/content/main-container-bg.png");
+  background-repeat: no-repeat;
+  background-size: 836px 1088px;
+  background-position: 0 212px;
+
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (min-width: 1024px) {
+    background-image: url("../img/content/main-container-bg@2x.png");
+  }
+
+  @include vp--1023 {
+    background-image: none;
+  }
+}

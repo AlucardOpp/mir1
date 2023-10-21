@@ -1,0 +1,130 @@
+.tab-info {
+  padding: 75px 0 75px;
+  border-top: 1px solid $color-periwinkle;
+  border-bottom: 1px solid $color-periwinkle;
+  background-color: $color-default-white;
+
+  @include vp--1023 {
+    padding: 0 0 31px;
+  }
+
+  @include vp--767 {
+    padding-bottom: 31px;
+  }
+}
+
+.swiper-slide-thumb-active .tab-info__control {
+  position: relative;
+  color: $color-default-black;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: $color-cobalt;
+    content: "";
+  }
+}
+
+.tab-info__controls {
+  position: relative;
+  max-width: 1436px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 1px;
+    background-color: $color-periwinkle;
+    content: "";
+    z-index: 0;
+  }
+
+  &::after {
+    @include vp--767 {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      background: linear-gradient(to right, $color-transparent, $color-transparent 60%, $color-default-white-5 90%);
+    }
+  }
+
+  @include vp--1439 {
+    margin-left: 40px;
+  }
+
+  @include vp--1023 {
+    margin-left: 74px;
+  }
+
+  @include vp--767 {
+    margin-left: 38px;
+  }
+
+  @include vp--374 {
+    margin-left: 14px;
+  }
+}
+
+.tab-info__controls-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tab-info__control {
+  cursor: pointer;
+  width: 240px;
+  padding: 24px 0 24px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: $color-black-russian-2;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  z-index: 9999;
+
+  &:hover {
+    color: $color-cobalt-2;
+  }
+
+  @include vp--1023 {
+    padding: 21px 0;
+    font-size: 17px;
+    line-height: 130%;
+  }
+
+  @include vp--767 {
+    width: 100%;
+    padding: 15px 19px 15px;
+    font-size: 17px;
+    line-height: 130%;
+  }
+}
+
+.tab-info__content {
+  padding-top: 67px;
+
+  @include vp--1023 {
+    padding-top: 37px;
+  }
+
+  @include vp--767 {
+    padding-top: 28px;
+  }
+}

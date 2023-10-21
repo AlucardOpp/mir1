@@ -1,0 +1,127 @@
+extends ../base/layout
+
+block variables
+  - const title = "UI-kit"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = ""
+
+block main
+  style.
+    main > .container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .components-backwards {
+      display: inline-block;
+      margin-bottom: 10px;
+      margin-left: 7px;
+    }
+
+    .components-backwards span:first-child {
+      position: relative;
+      top: -3px;
+
+      display: inline-block;
+      margin-right: 15px;
+
+      font-size: 16px;
+      line-height: 24px;
+      vertical-align: top;
+
+      transform: scale(2);
+    }
+
+    .components-backwards span:last-child {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .components-backwards + h1 {
+      margin-bottom: 0;
+    }
+
+    .container > section {
+      padding: 20px 0;
+    }
+
+  main
+    .container
+      a.components-backwards(href="index.html")
+        span &larr;
+        span вернуться на разводящую
+      h1 Компоненты, используемые в вёрстке
+
+      section
+        h2 Модалки
+        p
+          a(href="#", data-open-modal="feedback") Форма обратной связи
+        p
+          a(href="#", data-open-modal="success") Сообщение
+
+      section
+        h2 Пагинация
+
+        p Класс компонента .pagination
+        div
+          +pagination(32, 2)
+      section
+        h2 Хлебные крошки
+
+        p Класс компонента  .breadcrumbs
+
+        div
+          +breadcrumbs(path, "search")
+        div(style="background-color:black;color: white;")
+          +breadcrumbs(path, "search").banner__breadcrumbs
+      section
+        h2 Заголовок страницы
+        p Класс компонента .page-title
+        div
+          +page-title("Заголовок")
+      section
+        h2 Ссылка
+        p Класс компонента .link
+        p модификаторы --accent
+        p(style="color: red;") +link("/","текст ссылки") - цвет наследуется от родителя
+        div
+          +link("/","текст ссылки")
+        div(style="color: red;")
+            +link("/","текст ссылки")
+        div(style="color: green;")
+            +link("/","текст ссылки")
+      section
+        h2 Аккордеон
+        p Класс компонента .accordion
+        p(style="color: red;") +accordion(data) - в аргументе название объекта с данными
+        .main-qanda
+          +accordion(mainQanda)
+      section
+        h2 Список элементов
+        p Класс компонента .items-list
+        p(style="color: red;") +itemsList(data, modifier) - в аргументе название объекта с данными и модификатор(при необходимости для отдельных страниц)
+        +itemsList(catalogItems, "catalog")
+      section
+        h2 Список отраслей
+        p Класс компонента .scope-list
+        p(style="color: red;") +scopeList(data) - в аргументе название объекта с данными
+        +scopeList(mainScope)
+      section
+        h2 Список решений
+        p Класс компонента .solutions-list
+        p(style="color: red;") +solutionsList(data) - в аргументе название объекта с данными
+        +solutionsList(mainSolutions)
+      section
+        h2 Списки контактов
+        p Класс компонента .contact-lists
+        p(style="color: red;") +contact-lists(modifier) - в аргументе модификатор
+        +contact-lists()
+block modals
+  +modal("modal--feedback")(data-modal="feedback")
+    +modal-feedback()
+  +modal("modal--success")(data-modal="success")
+    +modal-success()

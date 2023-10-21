@@ -1,0 +1,11 @@
+.block-text-and-link a {
+  color: $color-cobalt;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.4;
+  }
+}

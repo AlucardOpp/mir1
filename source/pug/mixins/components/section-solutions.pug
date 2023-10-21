@@ -1,0 +1,6 @@
+mixin solutions(data)
+  section.solutions-section(class!=attributes.class)
+    .container.solutions-section__wrapper
+      .solutions-section__title-block
+        h2.page-title.page-title--h2.solutions-section__title!= data.title
+      +solutionsList(data.items)

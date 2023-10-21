@@ -1,0 +1,48 @@
+.form-input {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid $color-periwinkle;
+  line-height: 155%;
+
+  & input,
+  & textarea {
+    font-size: 17px;
+    line-height: 155%;
+    border: none;
+    margin-left: 10px;
+    flex: 1 0 0;
+    background-color: $color-transparent;
+  }
+
+  & textarea {
+    resize: none;
+  }
+
+  & input:focus,
+  & textarea:focus {
+    outline: none;
+  }
+
+  & label {
+    position: relative;
+    flex-shrink: 0;
+    flex-basis: 33%;
+  }
+
+  & textarea + label {
+    @include vp--1023 {
+      margin-bottom: 20px;
+    }
+  }
+
+  input[required] + label::after {
+    content: "*";
+    display: inline-block;
+    margin-left: 5px;
+    width: auto;
+    height: auto;
+  }
+}

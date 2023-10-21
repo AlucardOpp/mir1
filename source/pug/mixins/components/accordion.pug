@@ -1,0 +1,8 @@
+mixin accordion(data)
+  ol.accordion
+    each item in data
+      li(data-accordion=`${item.data}`).accordion__item
+        h3(aria-label="Открыть ответ" data-accordion=`${item.data}` class=`accordion__button accordion__button--${item.data}` tabindex="0")!= item.question
+          span.accordion__decoration
+        .accordion__answer
+          p.accordion__text!= item.answer

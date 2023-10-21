@@ -1,0 +1,369 @@
+.catalog-form__container {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  margin-bottom: 60px;
+
+  @include vp--1023 {
+    margin-bottom: 39px;
+  }
+
+  @include vp--767 {
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    &--show {
+      display: flex;
+      margin-bottom: 19px;
+    }
+  }
+}
+
+.catalog-form__fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  max-width: 472px;
+
+  @include vp--1023 {
+    max-width: 484px;
+  }
+
+  @include vp--767 {
+    max-width: none;
+  }
+}
+
+.catalog-form__buttons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 30px;
+
+  @include vp--1023 {
+    grid-template-columns: 1.03fr 1.4fr 1.1fr;
+    column-gap: 71px;
+  }
+
+  @include vp--767 {
+    column-gap: 0;
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+.catalog-form__item {
+  position: relative;
+
+  @include vp--767 {
+    border-bottom: 1px solid $color-periwinkle;
+
+    &:first-child {
+      border-top: 1px solid $color-periwinkle;
+    }
+  }
+}
+
+.catalog-form__item--show .catalog-form__checkboxes {
+  display: grid;
+}
+
+.catalog-form__item--show .catalog-form__button {
+  opacity: 0.7;
+}
+
+.catalog-form__button {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  padding: 0 12px 0 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 155%;
+  color: $color-black-russian;
+  cursor: pointer;
+  transition: color $trans--300;
+  max-width: 187px;
+  word-break: break-word;
+  user-select: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    border: 4px solid transparent;
+    border-top: 6px solid $color-black-russian;
+    width: 0;
+    height: 0;
+    top: 13px;
+  }
+
+  &:hover {
+    color: $color-cobalt;
+  }
+
+  @include vp--1023 {
+    font-size: 14px;
+    line-height: 130%;
+    max-width: 135px;
+
+    &::after {
+      border: 3px solid transparent;
+      border-top: 5px solid $color-black-russian;
+      right: 1px;
+      top: 7px;
+    }
+  }
+
+  @include vp--767 {
+    padding: 12px 7px 13px 0;
+    max-width: none;
+    width: 100%;
+    text-align: left;
+
+    &::after {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.catalog-form__checkboxes {
+  position: absolute;
+  display: none;
+  border-radius: 4px;
+  background-color: $color-default-white;
+  box-shadow: 0 4px 10px $color-default-black-2;
+  padding: 21px 20px 20px 20px;
+  top: 36px;
+  left: -5px;
+  grid-template-columns: max-content;
+  z-index: 5;
+
+  @include vp--1023 {
+    padding: 19px 20px 21px 20px;
+    width: auto;
+    top: 28px;
+    left: 0;
+  }
+
+  @include vp--767 {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0 0 13px 0;
+    grid-template-columns: auto;
+  }
+}
+
+.catalog-form__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include vp--1023 {
+    row-gap: 10px;
+    display: grid;
+    grid-template-columns: max-content;
+    column-gap: 0;
+  }
+
+  @include vp--767 {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+
+.catalog-form__open {
+  display: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  grid-template-columns: 24px max-content;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  column-gap: 10px;
+  margin-bottom: 30px;
+  transition: opacity $trans--300;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include vp--767 {
+    display: grid;
+
+    &--show {
+      margin-bottom: 19px;
+    }
+  }
+}
+
+.catalog-form__filters {
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: $color-black-russian;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 210px;
+}
+
+.catalog-form__removes {
+  display: none;
+  grid-template-columns: max-content 93px;
+  margin: -19px 0 39px 0;
+  column-gap: 32px;
+
+  &--show {
+    display: grid;
+  }
+
+  @include vp--1023 {
+    column-gap: 33px;
+    margin-bottom: 40px;
+  }
+
+  @include vp--767 {
+    grid-template-columns: 1fr 77px;
+    column-gap: 41px;
+    margin-top: 0;
+    margin-bottom: 31px;
+  }
+}
+
+.catalog-form__removes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 20px;
+
+  @include vp--1023 {
+    gap: 0;
+    column-gap: 29px;
+    row-gap: 20px;
+  }
+
+  @include vp--767 {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+.catalog-form__remove {
+  max-width: 399px;
+
+  @include vp--1023 {
+    max-width: 263px;
+  }
+
+  @include vp--767 {
+    max-width: none;
+
+    &:last-child .catalog-form__delete {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.catalog-form__delete {
+  position: relative;
+  border: none;
+  background-color: $color-whisper;
+  border-radius: 30px;
+  padding: 10px 15px 10px 37px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 110%;
+  color: $color-spun-pearl-2;
+  transition: opacity $trans--300;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 1px;
+    border-bottom: 1px solid $color-spun-pearl-2;
+    left: 13px;
+    top: 18px;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  @include vp--1023 {
+    font-size: 14px;
+    line-height: 130%;
+    padding: 8px 15px 11px 35px;
+  }
+
+  @include vp--767 {
+    padding: 8px 15px 8px 32px;
+    margin-bottom: 5px;
+
+    &::before,
+    &::after {
+      top: 50%;
+    }
+
+    &::before {
+      transform: translateY(-50%) rotate(-45deg);
+    }
+
+    &::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+}
+
+.catalog-form__clear {
+  padding: 11px 0 11px 0;
+  border: none;
+  background-color: transparent;
+  color: $color-spun-pearl-2;
+  font-size: 17px;
+  line-height: 110%;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: start;
+  transition: opacity $trans--300;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include vp--1023 {
+    font-size: 14px;
+    line-height: 130%;
+    padding: 9px 0;
+  }
+
+  @include vp--767 {
+    align-self: end;
+    padding: 8px 0;
+  }
+}

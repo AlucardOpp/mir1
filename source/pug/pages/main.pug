@@ -1,0 +1,77 @@
+extends ../base/layout
+
+block variables
+  - const title = "MIR"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "main"
+
+block main
+  main
+    section.promo
+      h1.visually-hidden!= "Модульные измерительные решения"
+      .promo__slider
+        .promo__wrapper
+          each item in promo
+            .promo__slide.container
+              .promo__container
+                h2.promo__title.title.title--h1!= item.title
+                p.promo__text!= item.text
+              +picture("content", item.img, "png", "1194", "840", "Задний фон слайда")
+        .promo__pagination.container
+    section.main-projects.section
+      .container
+        h2.section__title.title.title--h2!= "Спецпроекты"
+        .main-projects__slider
+          .main-projects__wrapper
+            each item in mainProjects
+              .main-projects__slide
+                a(href="#").main-projects__link
+                  +picture("content", item.img, "png", "452", "320", "Изображение проекта")
+                  span.main-projects__type!= item.type
+                  span.main-projects__name!= item.title
+          .main-projects__pagination
+          button.main-projects__button.main-projects__button--prev
+          button.main-projects__button.main-projects__button--next
+    section.main-scope.section.section--scope
+      .container
+        h2.section__title.section__title--white.title.title--h2!= "Сферы применения"
+        +scopeList(mainScope)
+    .main-background
+      section.main-solutions.section.section--columns
+        .container
+          .main-solutions__container
+            h2.main-solutions__title.section__title.title.title--h2!= "Отраслевые решения"
+          +solutionsList(mainSolutions)
+      section.main-news.section.section--news
+        .container
+          h2.section__title.title.title--h2!= "Новости компании"
+          ul.main-news__list
+            each item in mainNews
+              li.main-news__item
+                article.main-news__article
+                  time(datetime=`${item.year}-${item.month}-${item.day}` class="main-news__time")!= `${item.day}.${item.month}.${item.year}`
+                  h3.main-news__name
+                    a(href="#" aria-label="Переход к новости").link!= item.title
+                  p.main-news__text!= item.text
+          a(href="#" aria-label="Переход ко всем новостям").main-news__all!= "Все новости"
+    section.main-services.section
+      .container
+        h2.visually-hidden!= "Услуги и курсы"
+        ul.main-services__list
+          each item in mainServices
+            li(class=`main-services__item main-services__item--${item.color}`)
+              .main-services__container
+                h3.main-services__name!= item.title
+                p.main-services__text!= item.text
+                a(href="#" aria-label=`${item.ariaLabel}` class="main-services__button button")!= item.buttonText
+              +picture("content", item.img, "png", 718, 550, `Декоративное изображение блока "${item.title}"`)
+    section.main-qanda.section.section--qanda.section--columns
+      .container
+        .main-qanda__container
+          h2.main-qanda__title.section__title.title.title--h2!= "Вопросы <br> и ответы"
+        +accordion(mainQanda)
+    +feedback

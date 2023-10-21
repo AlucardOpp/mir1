@@ -1,0 +1,21 @@
+extends ../base/layout
+
+block variables
+  - const title = "Новости"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "news"
+
+block main
+  main
+    .inner-page
+      section.news
+        .container
+          +breadcrumbs(path, "news").inner-page__breadcrumbs
+          .inner-page__content.inner-page__content--news
+            +page-title(title)
+            +itemsList(news, "news")
+            +showMoreLink("#").news__link

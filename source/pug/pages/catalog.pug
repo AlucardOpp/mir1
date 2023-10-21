@@ -1,0 +1,55 @@
+extends ../base/layout
+
+block variables
+  - const title = "Каталог — MIR"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "catalog"
+
+block main
+  main
+    .inner-page
+      section.catalog
+        .container
+          +breadcrumbs(path, "catalog").inner-page__breadcrumbs
+          h1.inner-page__title.title.title--h2!= "Каталог"
+          .inner-page__content
+            .catalog-form
+              form(action="get")
+                button(class="catalog-form__open" type="button" aria-label="Открыть фильтры" aria-pressed="false")
+                  +icon("catalog-filters", "24", "24")
+                  span.catalog-form__filters!="Фильтры"
+                .catalog-form__container
+                  fieldset.catalog-form__fieldset
+                    legend.visually-hidden!= "Фильтровать"
+                    ul.catalog-form__buttons
+                      each item in catalogCheckboxes
+                        li(data-accordion=`${item.data}`).catalog-form__item
+                            button(type="button" aria-label="Открыть список пунктов" class="catalog-form__button" data-accordion=`${item.data}`)!= item.title
+                            .catalog-form__checkboxes
+                              ul.catalog-form__list
+                                - for(var i = 0; i < item.name.length; i++)
+                                  li.catalog-checkbox
+                                    input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden")
+                                    label(class="catalog-checkbox__label" for=`${item.id[i]}`)!= `${item.name[i]}`
+                  .select
+                    select(id="catalog-select" aria-label="Сортировать")
+                      each item in catalogSelect
+                        if item.title === "По популярности"
+                          option(value=`${item.title}` selected)!= `${item.title}`
+                        else
+                          option(value=`${item.title}`)!= `${item.title}`
+                .catalog-form__removes
+                  ul.catalog-form__removes-list
+                    - for (var i = 0; i < 2; i++)
+                      li.catalog-form__remove
+                        button(type="button" aria-label="Убрать пункт фильтра").catalog-form__delete!= "Цифровые двойники & HIL"
+                  button(type="button" aria-label="Очистит все пункты").catalog-form__clear!= "Очистить все"
+            .catalog__list
+              +itemsList(catalogItems, "catalog")
+              button(aria-label="Показать ещё" class="catalog__more" type="button")!="Показать ещё"
+            +pagination(35, 2)
+    +feedback()

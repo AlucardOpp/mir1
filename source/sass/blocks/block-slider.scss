@@ -1,0 +1,19 @@
+.block-slider {
+  @include vp--767 {
+    display: grid;
+    grid-template-columns: minmax(300px, 673px);
+  }
+}
+
+.block-slider__slide {
+  width: 100%;
+}
+
+.block-slider__slide img {
+  width: 100%;
+  height: auto;
+}
+
+.block-slider .text-page__slider-pagination {
+  margin: 22px 0 0 0;
+}

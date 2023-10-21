@@ -1,0 +1,20 @@
+mixin productOffer(data, mod)
+  section(class=`product-offer${mod ? `${` product-offer--`}${mod}`: ``}`)
+    .container
+      h2.title.title--h3!= data.title
+      each offer in data.list
+        section.product-offer__card
+          .product-offer__card-col
+            h3.title.title--h4!= offer.title
+            .product-offer__card-desc
+              p!= offer.desc
+            if(offer.descList)
+              ul
+                each descItem in offer.descList
+                  li
+                    span !{descItem}
+          .product-offer__card-col
+            if (offer.img)
+              +pictureMedia(offer.img.path, offer.img.name, offer.img.format, offer.img.width, offer.img.height, offer.img.altText)
+            else
+              +sliderImage(offer.images)

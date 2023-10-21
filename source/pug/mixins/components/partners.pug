@@ -1,0 +1,7 @@
+mixin partners()
+  section.partners(class!=attributes.class)
+    h2.page-title.page-title--h2.partners__title Партнеры
+    ul
+      each item in companyInfo.partners
+        li.partners__item
+          +picture("content", item.logo, "jpg", item.width, item.height, item.name)

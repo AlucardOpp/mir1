@@ -1,0 +1,119 @@
+.section {
+  padding: 106px 0 106px 0;
+
+  & .section__title {
+    margin: 0 auto 64px auto;
+    text-align: center;
+    overflow-wrap: break-word;
+    max-width: none;
+
+    &--white {
+      color: $color-default-white;
+    }
+  }
+
+  &--news {
+    padding: 0;
+  }
+
+  &--scope {
+    background-image: url("../img/content/main-scope-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (min-width: 1024px) {
+      background-image: url("../img/content/main-scope-bg@2x.png");
+    }
+  }
+
+  &--qanda {
+    background-image: url("../img/content/main-qanda-bg.png");
+    background-repeat: no-repeat;
+    background-position: 0 383px;
+    background-size: 662px 508px;
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (min-width: 1024px) {
+      background-image: url("../img/content/main-qanda-bg@2x.png");
+    }
+  }
+
+  @include vp--1023 {
+    padding: 87px 0 87px 0;
+
+    & .section__title {
+      margin-bottom: 43px;
+      max-width: none;
+
+      & br {
+        display: none;
+      }
+    }
+
+    &--news {
+      padding: 0;
+    }
+
+    &--scope {
+      background-image: url("../img/content/main-scope-bg-tablet.png");
+      background-position: bottom;
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (min-width: 768px) {
+        background-image: url("../img/content/main-scope-bg-tablet@2x.png");
+      }
+    }
+
+    &--qanda {
+      background-image: none;
+    }
+  }
+
+  @include vp--767 {
+    padding: 68px 0 68px 0;
+
+    & .section__title {
+      margin-bottom: 32px;
+    }
+
+    &--news {
+      padding: 0;
+    }
+
+    &--scope {
+      background-image: none;
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx), (min-width: 0) {
+        background-image: none;
+      }
+    }
+  }
+}
+
+.section--columns {
+  & .container {
+    display: grid;
+    grid-template-columns: 3.12fr 6fr;
+  }
+
+  & .section__title {
+    margin-top: 4px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: start;
+  }
+
+  @include vp--1023 {
+    & .section__title {
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    & .container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  }
+}

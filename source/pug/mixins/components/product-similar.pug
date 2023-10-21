@@ -1,0 +1,15 @@
+mixin productSimilar(data)
+  section.product-similar(class!=attributes.class)
+    .container
+      h2.title.title--h3!= data.title
+      .product-similar__cards
+        .product-similar__slider
+          .product-similar__slider-wrapper
+            each card in data.list
+              .product-similar__slide
+                a(href=card.link).product-similar__card
+                  +picture(card.img.path, card.img.name, card.img.format, card.img.width, card.img.height, card.img.altText)
+                  h3.title.title--h4!= card.title
+          .product-similar__slider-pagination
+          button.product-similar__slider-btn.product-similar__slider-btn--next
+          button.product-similar__slider-btn.product-similar__slider-btn--prev
